@@ -1,5 +1,5 @@
 import arcpy
-
+import os
 arcpy.env.workspace = r'G:\Semster 8\GIS\Project\Data'
 arcpy.env.overwriteOutput = True
 
@@ -43,3 +43,29 @@ geo_points_count = arcpy.GetCount_management("geo_points_lyr")
 print("Number of geography region points on land:", geo_points_count)
 
 # Task 3
+
+
+# Task 15
+#
+#     img_contents = os.listdir(imgfolder)
+#     for img in img_contents:
+#         full_path = os.path.join(imgfolder, img)
+#         pillow_img = Image.open(full_path)
+#         exif = {ExifTags.TAGS[k]: v for k, v in pillow_img._getexif().items() if k in ExifTags.TAGS}
+#         gps_all = {}
+#         try:
+#             for key in exif['GPSInfo'].keys():
+#                 decoded_value = ExifTags.GPSTAGS.get(key)
+#                 gps_all[decoded_value] = exif['GPSInfo'][key]
+#
+#             long_ref = gps_all.get('GPSLongitudeRef')
+#             long = gps_all.get('GPSLongitude')
+#             lat_ref = gps_all.get('GPSLatitudeRef')
+#             lat = gps_all.get('GPSLatitude')
+#
+#             print long_ref, "    ", long
+#             print lat_ref, "    ", lat
+#         except:
+#             print("This image has no GPS Info in it {}".format(full_path))
+#         finally:
+#             print ("-----------"*50)
